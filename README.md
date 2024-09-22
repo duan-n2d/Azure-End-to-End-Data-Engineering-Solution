@@ -16,7 +16,7 @@ More detail in this [repository](https://github.com/duan-n2d/AdventureWork2019LT
 
 I can't public my azure resource group
 
-![ResourceGroup](Screenshot/ResourceGroup.png)
+![ResourceGroup](Screenshot/ResourceGroup.PNG)
 
 ---
 
