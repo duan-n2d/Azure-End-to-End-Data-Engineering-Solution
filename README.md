@@ -15,7 +15,9 @@ The project simulates one of the most common real-world scenarios: **migrating a
 More detail in this [repository](https://github.com/duan-n2d/AdventureWork2019LT-Project-Azure-Data-Factory)
 
 I can't public my azure resource group
+
 ![ResourceGroup](Screenshot/ResourceGroup.png)
+
 ---
 
 ### **Architecture Workflow:**
