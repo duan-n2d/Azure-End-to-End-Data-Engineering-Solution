@@ -13,6 +13,7 @@ The goal is to migrate data from an **on-premise SQL Server** database to the **
 The project simulates one of the most common real-world scenarios: **migrating an on-premise SQL Server database to the cloud**. The database consists of six or seven tables, which are copied to **Azure Data Lake Gen2** using **Azure Data Factory**.
 
 More detail in this [repository](https://github.com/duan-n2d/AdventureWork2019LT-Project-Azure-Data-Factory)
+
 I can't public my azure resource group
 ![ResourceGroup](Screenshot/ResourceGroup.png)
 ---
