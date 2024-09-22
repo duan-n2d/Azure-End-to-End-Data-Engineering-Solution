@@ -7,16 +7,7 @@ This repository demonstrates a comprehensive real-time **Data Engineering Projec
 ## **Project Overview:**
 The goal is to migrate data from an **on-premise SQL Server** database to the **Azure cloud**, transform it, and analyze it using popular Azure tools. The project follows a typical **data lakehouse architecture**, leveraging **Azure Data Factory**, **Azure Databricks**, **Azure Synapse Analytics**, **Azure Data Lake Gen2**, and **Power BI** to handle different stages of data ingestion, transformation, storage, and reporting.
 
-### **Azure Tools Used:**
-- **Azure Data Factory (ADF)**: ETL tool for data ingestion and orchestration.
-- **Azure Data Lake Storage Gen2**: Scalable storage solution for data lakes.
-- **Azure Databricks**: Apache Spark-based platform for big data analytics and data transformations.
-- **Azure Synapse Analytics**: Analytics service to store and query transformed data.
-- **Power BI**: Data visualization and reporting tool.
-- **Azure Active Directory (AAD)**: Identity and access management.
-- **Azure Key Vault**: Secure storage for credentials (e.g., connection strings, passwords).
-
----
+![flow](Screenshot/flow.png)
 
 ## **Use Case: On-Premise SQL Database Migration**
 The project simulates one of the most common real-world scenarios: **migrating an on-premise SQL Server database to the cloud**. The database consists of six or seven tables, which are copied to **Azure Data Lake Gen2** using **Azure Data Factory**.
