@@ -12,6 +12,9 @@ The goal is to migrate data from an **on-premise SQL Server** database to the **
 ## **Use Case: On-Premise SQL Database Migration**
 The project simulates one of the most common real-world scenarios: **migrating an on-premise SQL Server database to the cloud**. The database consists of six or seven tables, which are copied to **Azure Data Lake Gen2** using **Azure Data Factory**.
 
+More detail in this [repository](https://github.com/duan-n2d/AdventureWork2019LT-Project-Azure-Data-Factory)
+I can't public my azure resource group
+![ResourceGroup](Screenshot/ResourceGroup.png)
 ---
 
 ### **Architecture Workflow:**
@@ -38,16 +41,6 @@ The project simulates one of the most common real-world scenarios: **migrating a
 
 7. **Automation**:
    - Pipelines are automated such that when new rows are added to the on-premise database, the entire pipeline—data ingestion, transformation, and reporting—executes to reflect the updates in Power BI in real-time.
-
----
-
-### **Task Covered in the Project:**
-- Environment Setup – Configuring Azure resources (Data Factory, Data Lake, etc.).
-- Data Ingestion – Ingesting on-premise SQL data into the **Bronze layer** of the data lake.
-- Data Transformation – Using **Azure Databricks** to perform transformations from **Bronze to Silver** and **Silver to Gold**.
-- Data Loading – Loading the final transformed data into **Azure Synapse Analytics**.
-- Data Reporting – Creating reports using **Power BI**.
-- End-to-End Pipeline Testing – Ensuring the pipeline works from ingestion to reporting.
 
 ---
 
