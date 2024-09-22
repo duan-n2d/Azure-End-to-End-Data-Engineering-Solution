@@ -37,6 +37,7 @@ I can't public my azure resource group
 
 5. **Data Reporting**:
    - Using **Power BI**, reports are created based on the clean data stored in **Azure Synapse Analytics**, visualizing insights through charts, dashboards, and various other data representation formats.
+   - This is [sample Dashboard](Awlt.pbix)
 
 6. **Security and Governance**:
    - **Azure Active Directory (AAD)** manages identity and access control.
