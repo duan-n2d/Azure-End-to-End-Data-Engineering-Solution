@@ -12,7 +12,7 @@ The goal is to migrate data from an **on-premise SQL Server** database to the **
 ## **Use Case: On-Premise SQL Database Migration**
 The project simulates one of the most common real-world scenarios: **migrating an on-premise SQL Server database to the cloud**. The database consists of six or seven tables, which are copied to **Azure Data Lake Gen2** using **Azure Data Factory**.
 
-More detail in this [repository](https://github.com/duan-n2d/AdventureWork2019LT-Project-Azure-Data-Factory)
+The full Azure Data Factory implementation (pipelines, datasets, linked services, triggers) is in [`adf/`](adf/README.md).
 
 I can't public my azure resource group
 

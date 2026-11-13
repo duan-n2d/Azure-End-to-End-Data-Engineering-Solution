@@ -1,0 +1,12 @@
+{
+	"name": "GitHub_duan_n2d",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "GitHub",
+		"typeProperties": {
+			"username": "duan-n2d",
+			"encryptedCredential": "<removed>"
+		}
+	}
+}
