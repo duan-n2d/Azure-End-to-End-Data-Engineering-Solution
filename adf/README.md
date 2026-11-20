@@ -1,13 +1,13 @@
 # AdventureWorks Data Pipeline with ADF, Databricks, and Delta Lake
 
-This project demonstrates an ETL pipeline for processing data from a local SQL Server into a Delta Lake on Databricks using Azure Data Factory (ADF). The dataset used is the AdventureWorksLT2019, and the data processing follows a three-layer architecture: **Bronze**, **Silver**, and **Gold**.
+This project demonstrates an ETL pipeline for processing data from a local SQL Server into Azure Data Lake Storage Gen2, with Databricks notebooks writing Delta tables, orchestrated by Azure Data Factory (ADF). The dataset used is the AdventureWorksLT2019, and the data processing follows a three-layer architecture: **Bronze**, **Silver**, and **Gold**.
 
 ## Project Overview
 
 ![adf_screenshot](adf_screenshot.PNG)
 
 ### Architecture:
-- **Bronze Layer**: Raw data copied from an on-premises SQL Server to the Bronze layer in Databricks.
+- **Bronze Layer**: Raw data copied from an on-premises SQL Server (through a self-hosted integration runtime) as Parquet files into the `awlt2019` container in Azure Data Lake Storage Gen2. Databricks reads it through the `/mnt/awlt2019` mount.
 - **Silver Layer**: Data cleaned and transformed, particularly focusing on date formatting and data standardization.
 - **Gold Layer**: Final cleaned data with renamed columns for ease of analysis.
 
@@ -25,7 +25,9 @@ This project demonstrates an ETL pipeline for processing data from a local SQL S
 
 ### 1. Data Extraction from SQL Server
 - **Lookup**: The pipeline looks up all tables in the `OnPremSQLServer` (localhost SQL Server).
-- **ForEach**: For each table found, data is copied from the SQL server to the Bronze layer as **parquet** files.
+- **ForEach**: For each table found, data is copied from the SQL server to the Bronze layer (ADLS Gen2) as **parquet** files. Each run is a full `SELECT *` reload of every table; there is no incremental/watermark logic.
+
+> **Note:** the Databricks notebooks are **not committed** to this repo. The pipeline calls `/Shared/DefaultToSilver` and `/Shared/SilverToGold` in the Databricks workspace. Steps 2 and 3 below describe what those notebooks do, and the sample code further down shows the logic for one table (`Address`).
 
 ### 2. Data Transformation (Bronze to Silver)
 - **Notebook**: A Databricks notebook loads parquet files from the Bronze layer (`mnt/awlt2019/SalesLT`), performs the following transformations:
@@ -38,7 +40,7 @@ This project demonstrates an ETL pipeline for processing data from a local SQL S
   - Write the cleaned data to the Gold layer (`mnt/awlt2019-gold`) in **Delta** format.
 
 ### 4. Daily Data Refresh
-- The pipeline is triggered every day at 00:00 (midnight) to refresh the data.
+- The pipeline is triggered every day at 00:00 (midnight, SE Asia Standard Time) to refresh the data.
 
 ## How to Run the Project
 Clone the repository:
@@ -88,4 +90,4 @@ df.write.format('delta').mode('overwrite').save('/mnt/awlt2019-gold/SalesLT/Addr
 The pipeline is configured to refresh the data daily at 00:00 (midnight). You can modify the schedule in Azure Data Factory by adjusting the pipeline trigger settings.
 
 ## References
-This project was inspired by tutorials from Mr. K Talks Tech, who provides excellent resources for working with ADF and Databricks.
+This project was built by following the tutorial series from Mr. K Talks Tech on ADF and Databricks.

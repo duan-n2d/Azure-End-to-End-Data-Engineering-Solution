@@ -33,6 +33,7 @@ I can't public my azure resource group
    - The **Bronze layer** holds raw data, serving as the **source of truth**.
    - The **Silver layer** is where basic modifications (date formatting) are applied by a Databricks notebook.
    - The **Gold layer** holds the renamed (snake_case) columns, ready for analytics and reporting.
+   - These Silver/Gold descriptions come from the sample code in [`adf/README.md`](adf/README.md); the actual notebooks are not in the repo.
 
 3. **Data Transformation**:
    - After the copy step, ADF runs two **Azure Databricks** notebooks in sequence (`/Shared/DefaultToSilver`, then `/Shared/SilverToGold`) on an existing cluster. The notebooks are PySpark but are **not committed** to this repo.
